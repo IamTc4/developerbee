@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeveloperBee specializes in AI/ML, Cyber Security, and operational intelligence. Discover our mission, vision, and expert solutions for fortified digital growth.">
+    <title>DeveloperBee - AI, Security & Innovation (About Us)</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=400;600;700&family=Playfair+Display:wght=400;700&display=swap" rel="stylesheet">
+</head>
+
+<body style="background:#000; margin:0; padding-top: 100px;">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+<style>
+/* Container for the two side-by-side columns */
+.mission-vision-grid {
+    display: flex; /* CRUCIAL: Makes items flow horizontally */
+    gap: 40px; /* Space between the two columns */
+    padding: 20px 0;
+}
+
+
+
+/* Highlighted Title Style */
+.mission-vision-item h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    color: #5FF7FF; /* Highlight color */
+    border-bottom: 3px solid #5FF7FF; /* Strong highlight line */
+    display: inline-block; /* Border only covers the text width */
+    padding-bottom: 5px;
+}
+
+/* Mobile Responsiveness: Stack columns vertically on small screens */
+@media (max-width: 768px) {
+    .mission-vision-grid {
+        flex-direction: column; 
+        gap: 20px;
+    }
+}
+/* ========================================================================= */
+/* 1. ISLAND HEADER: Reduced Height, Transparency, and Blur */
+/* ========================================================================= */
+.island-header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    /* AGGRESSIVELY REDUCED VERTICAL PADDING for THINNER BAR */
+    padding: 0.3em 1.5em; 
+    width: min(97vw, 1050px);
+    background: rgba(0, 0, 0, 0.75); 
+    border-radius: 3em;
+    box-shadow: 0 6px 32px #5ff7ff22, 0 0 0 4px #5ff7ff12; 
+    border: 1.7px solid #5FF7FF44; 
+    z-index: 1300;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    font-family: 'Montserrat', Arial, sans-serif;
+    backdrop-filter: blur(8px); 
+}
+
+/* ========================================================================= */
+/* 2. LOGO, NAVIGATION LINKS, AND ACTION BUTTON: Spacing & Logo Size */
+/* ========================================================================= */
+.island-logo { 
+    display:flex; 
+    align-items:center; 
+    font-size:1.3em; 
+    color:#5ff7ff; 
+    font-weight:700; 
+    letter-spacing:1px; 
+    /* TIGHTER SPACING after logo */
+    padding-right:0.6em; 
+}
+.island-logo img { 
+    /* INCREASED LOGO SIZE */
+    height:42px; /* Increased from 34px */
+    width:auto; 
+    margin-right:.6em; 
+    border-radius:0.6em;
+}
+
+.island-nav { 
+    display:flex; 
+    /* TIGHTER SPACING between links */
+    gap: 0.7em; 
+    align-items:center; 
+    margin:0; 
+    padding:0; 
+}
+.island-nav li { list-style:none; position:relative;}
+.island-nav a { 
+    color:#eafffa; 
+    text-decoration:none; 
+    font-weight:600; 
+    /* TIGHTER PADDING around link text */
+    padding:0.3em 0.8em; 
+    border-radius:.6em; 
+    font-size:1em; 
+    display:block; 
+    transition: color .21s, background .2s;
+}
+.island-nav a:hover, .island-nav a.active { color: #5FF7FF; background:#191e23;}
+
+/* Dropdown menu (kept consistent with transparency/blur) */
+.services-dropdown {
+    display:none; 
+    position: absolute; 
+    left:0; 
+    top:100%; 
+    background: rgba(25, 25, 32, 0.9); 
+    border-radius:0.7em; 
+    min-width:194px; 
+    box-shadow:0 4px 16px #171c1e88;
+    z-index:1001; 
+    flex-direction:column; 
+    overflow:hidden; 
+    padding:0.2em 0; 
+    margin-top:.17em;
+    backdrop-filter: blur(4px);
+}
+.island-nav li:focus-within > .services-dropdown,
+.island-nav li:hover > .services-dropdown {
+    display: flex !important;
+}
+.services-dropdown a {color:#eafffa; background:none; font-size:0.98em; border-radius:0; padding:.83em 1.15em;}
+.services-dropdown a:hover {background:#101215; color:#5FF7FF;}
+
+.island-action { 
+    /* TIGHTER SPACING before button */
+    margin-left:0.6em; 
+}
+.nav-contact-btn {
+    background: #5FF7FF; color: #191e23; border:none; border-radius:1.3em; font-weight:700;
+    font-size:1em; padding:.44em 1.3em; box-shadow:0 2px 8px #5ff7ff55;
+    cursor:pointer; transition:.2s; text-decoration:none; margin-left:0.2em;
+}
+.nav-contact-btn:hover { background:#fffde7; color:#131618;}
+
+/* ========================================================================= */
+/* 3. MOBILE OPTIMIZATION (max-width:800px) */
+/* ========================================================================= */
+@media (max-width:800px){
+    .island-header{
+        /* ENSURE SIDE MARGINS ARE VISIBLE */
+        width: 90vw; 
+        padding:0.5em 0.8em; /* Good internal padding */
+        font-size:1em;
+    }
+    .island-logo{font-size:.93em;}
+    /* INCREASED LOGO SIZE FOR MOBILE */
+    .island-logo img { 
+        height: 38px; /* Slightly smaller than desktop but still larger than original */
+    }
+    .island-action{margin-left:.5em;}
+    
+    .hamburger {display:flex;}
+    .island-nav {
+        position: fixed; flex-direction:column; gap:0.3em; align-items:flex-start;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(8px);
+        top:65px; left:50%; transform:translateX(-50%);
+        border-radius:1.3em; 
+        width: 90vw; /* Aligns with header width */
+        max-width: 330px; 
+        box-shadow:0 8px 40px #181e2844;
+        padding:1em 1em 1em 1.1em;
+        opacity: 0; pointer-events: none; z-index:1401; transition:opacity .23s;
+    }
+    .island-nav.open { opacity:1; pointer-events:auto;}
+    .island-nav li {width:100%;}
+    .services-dropdown {position:static; margin:.3em 0 0 0;}
+}
+
+/* ========================================================================= */
+/* 4. SMALL MOBILE OPTIMIZATION (max-width:420px) */
+/* ========================================================================= */
+@media (max-width:420px){
+    .island-header{
+        width: 90vw;
+        padding:0.3em 0.7em; 
+    }
+    /* INCREASED LOGO SIZE FOR VERY SMALL MOBILE */
+    .island-logo img{height:30px;} /* Increased from 27px */
+    .island-nav{
+        min-width: 90vw; 
+        width: 90vw; 
+        padding:0.7em 0.5em;
+    }
+    .nav-contact-btn{font-size:0.92em;}
+}
+/* New CSS for the main content to integrate the video and new sections */
+.about-us-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #eafffa;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.section-title {
+    font-size: 2.5em;
+    text-align: center;
+    color: #5FF7FF;
+    margin-bottom: 0.5em;
+    font-family: 'Playfair Display', serif;
+}
+.section-intro {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 2em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #b0e0e6;
+}
+.about-us-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.about-us-video, .about-us-text {
+    flex: 1;
+}
+.about-us-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(95, 247, 255, 0.2);
+}
+.about-us-text h3 {
+    font-size: 1.8em;
+    color: #eafffa;
+    margin-top: 0;
+    font-family: 'Playfair Display', serif;
+}
+.about-us-text p {
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+}
+.btn {
+    display: inline-block;
+    background: #5FF7FF;
+    color: #191e23;
+    padding: 0.7em 1.8em;
+    border-radius: 2em;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+.btn:hover {
+    background: #fffde7;
+}
+
+/* Why Choose DeveloperBee Section (New) */
+.key-sections {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 40px 0;
+}
+.key-section {
+    flex: 1;
+    background: rgba(25, 30, 35, 0.7);
+    border: 1px solid #5FF7FF44;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.key-section h4 {
+    color: #5FF7FF;
+    font-size: 1.4em;
+    margin-top: 0;
+    border-bottom: 2px solid #5FF7FF22;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.key-section ul {
+    list-style: none;
+    padding: 0;
+}
+.key-section li {
+    margin-bottom: 10px;
+    padding-left: 1.5em;
+    position: relative;
+    line-height: 1.5;
+}
+.key-section li:before {
+    content: '★'; /* Star or a small diamond for list style */
+    color: #5FF7FF;
+    position: absolute;
+    left: 0;
+    font-size: 0.8em;
+    top: 0.1em;
+}
+
+/* Mobile Responsiveness for Main Content */
+@media (max-width: 900px) {
+    .about-us-content {
+        flex-direction: column;
+    }
+    .about-us-video, .about-us-text {
+        width: 100%;
+    }
+    .key-sections {
+        flex-direction: column;
+    }
+}
+
+/* Footer Styles (Minimal for now, assuming external style.css handles the rest) */
+.main-footer {
+    background: #101215;
+    color: #eafffa;
+    padding: 40px 20px 20px 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    border-top: 2px solid #5FF7FF11;
+}
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.footer-brand, .footer-links, .footer-contact {
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+.footer-brand {
+    display: flex;
+    align-items: center;
+}
+.footer-logo {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+.footer-brand-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #5FF7FF;
+}
+.footer-links h4, .footer-contact h4 {
+    color: #5FF7FF;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-links a, .footer-contact a {
+    color: #b0e0e6;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+.footer-links a:hover, .footer-contact a:hover {
+    color: #5FF7FF;
+}
+.footer-contact p {
+    margin: 0 0 8px 0;
+}
+.footer-bottom {
+    border-top: 1px solid #5FF7FF11;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-social a {
+    color: #b0e0e6;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.2s;
+}
+.footer-social a:hover {
+    color: #5FF7FF;
+}
+.footer-social span {
+    margin-right: 5px;
+}
+.footer-copyright {
+    margin: 10px 0 0 0;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+    .footer-bottom {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    .footer-social {
+        margin-bottom: 15px;
+    }
+}
+</style>
+<header class="island-header" id="mainHeader">
+    <div class="island-logo">
+        <img src="static/Design.jpeg" alt="developerbee Logo"> DeveloperBee
+    </div>
+    <button class="hamburger" id="navToggle" aria-label="Menu" tabindex="0">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="island-nav" id="headerNav">
+        <li><a href="index.html">Home</a></li>
+        <li tabindex="0">
+            <a href="services.html">Services</a>
+            <div class="services-dropdown">
+                <a href="services.html#intelligence-automation">Intelligence & Automation</a>
+                <a href="services.html#cyber-security">Cyber Security & Digital Defense</a>
+                <a href="services.html#digital-growth">Digital Presence & Growth</a>
+                <a href="services.html#product-packaging">Product Packaging</a>
+                <a href="services.html#business-analysis">Business Analysis</a>
+            </div>
+        </li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+    <div class="island-action">
+        <a href="contact.html" class="nav-contact-btn">Get a Quote</a>
+    </div>
+</header>
+<main>
+    <section class="about-us-section">
+        <h2 class="section-title">DeveloperBee: Our Hive & Vision</h2>
+        <p class="section-intro">
+            Just like a hive, DeveloperBee brings focused teamwork and tireless dedication, specializing in **Machine Learning** and **Cyber Security** to build your operational intelligence and fortified digital defense.
+        </p>
+        
+        <div class="about-us-video" >
+    <video src="static/bs4.mp4"  autoplay loop muted playsinline loading="lazy">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<div class="about-us-content">
+    
+    <div class="mission-vision-grid">
+        
+        <div class="mission-vision-item">
+           <center>
+            <h3>Our Relentless Mission </h3> </center>
+            <p>We engineer **intelligent systems** and are the architects of your **digital defense**, committed to delivering operational efficiency and fortified security to help your business thrive.</p>
+        </div>
+
+        <div class="mission-vision-item">
+            <center><h3>The Vision: </h3> <br>
+            <h3> Sweet Success for Clients</h3></center>
+            <p>To build a buzzing hive of innovation where every project thrives, powered by the relentless spirit of the bee—connecting technology, creativity, and collaboration to create **sweet success** for our clients.</p>
+            <p>Like the bee's harmonious dance guiding its hive, we aim to lead the technology landscape with clarity, purpose, and unity—building a buzzing network of innovation that fuels progress and shapes the future.</p>
+        </div>
+    </div> 
+
+    
+
+</div>
+<div style="text-align: center; margin-top: 30px;">
+        <a href="contact.html" class="btn">Start Your Project</a>
+    </div>
+</div>
+        <h2 class="section-title" style="margin-top: 60px;">Why Choose DeveloperBee?</h2>
+        <div class="key-sections">
+            <div class="key-section">
+                <h4>The Business Challenge (What You Need)</h4>
+                <ul>
+                    <li>**Risk Mitigation:** Protection against advanced cyber threats (ransomware, data breaches).</li>
+                    <li>**Operational Intelligence:** Data-driven automation and decision-making.</li>
+                    <li>**Efficiency at Scale:** Self-optimizing digital platforms for peak performance and growth.</li>
+                </ul>
+            </div>
+            <div class="key-section">
+                <h4>DeveloperBee's Expert Solution (What We Provide)</h4>
+                <ul>
+                    <li>**Intelligent Systems:** AI/ML models (TensorFlow, PyTorch), workflow automation (n8n, Zapier).</li>
+                    <li>**Fortified Defense:** Red-team security protocols (Kali Linux, Metasploit, VAPT).</li>
+                    <li>**Engineered Growth:** UX/UI design (Figma, Adobe XD), data-driven SEO (Semrush, Ahrefs).</li>
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+    <section class="about-us-section" style="padding-top: 0;">
+        <h2 class="section-title" style="font-size: 2em;">Our Core Focus Areas</h2>
+        <div class="key-sections">
+            <div class="key-section">
+                <h4>Intelligence & Automation</h4>
+                <ul>
+                    <li>AI/ML Solution Development: Custom models and predictive analytics (TensorFlow, PyTorch).</li>
+                    <li>Data Science & BI: Advanced data reporting and strategy (Tableau, Power BI).</li>
+                    <li>Workflow Automation: Building intelligent, self-optimizing integrations (n8n, Zapier).</li>
+                </ul>
+            </div>
+            <div class="key-section">
+                <h4>Cyber Security & Digital Defense</h4>
+                <ul>
+                    <li>Vulnerability & Pen Testing (VAPT): Proactive security audits and threat elimination (Kali Linux, Metasploit).</li>
+                    <li>Network Forensics & Monitoring: Real-time analysis and security management (Wireshark).</li>
+                    <li>Secure IoT Infrastructure: Design and protection for connected systems (AWS IoT Core).</li>
+                </ul>
+            </div>
+            <div class="key-section">
+                <h4>Digital Presence & Growth</h4>
+                <ul>
+                    <li>UI/UX Design & Strategy: Creating high-converting user experiences (Figma, Adobe XD).</li>
+                    <li>Web & Mobile Development: E-commerce, CMS, and custom application solutions.</li>
+                    <li>Advanced SEO & Marketing: Data-driven search strategy and automation (Semrush, Ahrefs).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+           
+<!-- ✅ FOOTER (UNCHANGED) -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="static/Design.jpeg" alt="developerbee Logo" class="footer-logo" loading="lazy">
+                <span class="footer-brand-name">DeveloperBee</span>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Our Expertise</h4>
+                <ul>
+                    <li><a href="services.html#intelligence-automation">AI & Automation</a></li>
+                    <li><a href="services.html#cyber-security">Cyber Security</a></li>
+                    <li><a href="services.html#digital-growth">Digital Growth</a></li>
+                    <li><a href="services.html#web-dev">Web & App Dev</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <p>Email: <a href="mailto:developerbee.off@gmail.com">info@developerbee.com</a></p>
+                <p>Phone: <a href="tel:+917021975373">+91 7021975373</a></p>
+                <p>Location: Remote / Global</p>
+                <p>From India's heart to the world's stage.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="#" title="Facebook"><span class="fab fa-facebook-f"></span> Facebook</a>
+                <a href="#" title="Twitter"><span class="fab fa-twitter"></span> Twitter</a>
+                <a href="#" title="LinkedIn"><span class="fab fa-linkedin-in"></span> LinkedIn</a>
+                <a href="https://www.instagram.com/developerbee.digital/" title="Instagram"><span class="fab fa-instagram"></span> Instagram</a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 DeveloperBee. All rights reserved. | Built with relentless dedication.</p>
+        </div>
+    </div>
+</footer>
+
+<button id="scrollToTopBtn" title="Go to top">&#9650;</button>
+    <script src="static/header.js"></script>
+    <script src="static/script.js"></script>
+</body>
+</html>
