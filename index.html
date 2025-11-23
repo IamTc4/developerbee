@@ -78,6 +78,7 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
+    [
     {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -93,91 +94,98 @@
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+1-234-567-890",
+            "telephone": "+91-702-197-5373",
             "contactType": "customer service",
             "email": "info@developerbee.com"
         },
         "sameAs": [
             "https://www.facebook.com/developerbee",
             "https://www.twitter.com/developerbee",
-            "https://www.linkedin.com/company/developerbee"
+            "https://www.linkedin.com/company/developerbee",
+            "https://www.instagram.com/developerbee.digital/"
         ],
-        "service": [
-            {
-                "@type": "Service",
-                "name": "Web Development",
-                "description": "Custom web development solutions for businesses of all sizes"
-            },
-            {
-                "@type": "Service", 
-                "name": "Mobile App Development",
-                "description": "Native and cross-platform mobile application development"
-            },
-            {
-                "@type": "Service",
-                "name": "UI/UX Design", 
-                "description": "User interface and user experience design services"
-            },
-            {
-                "@type": "Service",
-                "name": "SEO Optimization",
-                "description": "Search engine optimization and digital marketing services"
-            }
-        ],
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "Digital Dukaan Starter",
-                "price": "199",
-                "priceCurrency": "INR",
-                "description": "Basic website for local shops starting at ₹199/month"
-            },
-            {
-                "@type": "Offer", 
-                "name": "Digital Dukaan Growth",
-                "price": "699",
-                "priceCurrency": "INR",
-                "description": "Dynamic website with analytics and payments for ₹699/month"
-            }
-        ],
-        "mainEntity": {
-            "@type": "FAQPage",
-            "mainEntity": [
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Digital Solutions",
+            "itemListElement": [
                 {
-                    "@type": "Question",
-                    "name": "Why should I Get #BrandedBydeveloperbee?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "developerbee has a proven track record with numerous satisfied clients, making strides as a leading digital agency. We focus on delivering measurable impact and and an almost perfect client satisfaction score across all our functions."
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Web Development",
+                        "serviceType": "SoftwareDevelopment",
+                        "description": "Custom web development solutions for businesses of all sizes"
                     }
                 },
                 {
-                    "@type": "Question",
-                    "name": "What does the process look like while working with developerbee?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Our process is designed for clarity and collaboration. It typically begins with a discovery phase, followed by strategy, design, development, and ongoing support. We ensure transparent communication and iterative feedback loops at every stage."
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Mobile App Development",
+                        "serviceType": "SoftwareDevelopment",
+                        "description": "Native and cross-platform mobile application development"
                     }
                 },
                 {
-                    "@type": "Question",
-                    "name": "What is your pricing structure?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Transparent plans for every stage: Digital Dukaan from ₹199–₹699/month; Websites from ₹5k–₹12k; Enterprise (ERP/AI/Cybersecurity) is custom — typical ERP from ₹50k+. See the Pricing page for full details."
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "UI/UX Design",
+                        "serviceType": "Design",
+                        "description": "User interface and user experience design services"
                     }
                 },
                 {
-                    "@type": "Question",
-                    "name": "What types of industries does developerbee work with?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We have successfully completed projects across a diverse range of industries and domains, including tech, e-commerce, healthcare, finance, and more. Our adaptable approach allows us to serve various sectors effectively."
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO Optimization",
+                        "serviceType": "SEO",
+                        "description": "Search engine optimization and digital marketing services"
                     }
                 }
             ]
         }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why should I Get #BrandedBydeveloperbee?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "developerbee has a proven track record with numerous satisfied clients, making strides as a leading digital agency. We focus on delivering measurable impact and and an almost perfect client satisfaction score across all our functions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does the process look like while working with developerbee?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our process is designed for clarity and collaboration. It typically begins with a discovery phase, followed by strategy, design, development, and ongoing support. We ensure transparent communication and iterative feedback loops at every stage."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is your pricing structure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Transparent plans for every stage: Digital Dukaan from ₹199–₹699/month; Websites from ₹5k–₹12k; Enterprise (ERP/AI/Cybersecurity) is custom — typical ERP from ₹50k+. See the Pricing page for full details."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What types of industries does developerbee work with?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We have successfully completed projects across a diverse range of industries and domains, including tech, e-commerce, healthcare, finance, and more. Our adaptable approach allows us to serve various sectors effectively."
+                }
+            }
+        ]
     }
+    ]
     </script>
     <script>
         // Video expansion will be initialized after GSAP loads (see bottom of page)
@@ -1075,8 +1083,8 @@
         </div>
 
         <!-- Three.js must load before script-3d.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="static/script-3d.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+        <script src="static/script-3d.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
             integrity="sha512-kq1e3YMRoYBebquGsyhQOdE31E4n4t4tccnE9vrFica8tWHZcizxgxYkWwaP42gnikIze8ih/7gToYtL6vhJ2w=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
