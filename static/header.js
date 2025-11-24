@@ -47,10 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Sticky Header Scroll Effect
+    // 2. Smart Sticky Header Scroll Effect (Hide on scroll down, Show on scroll up)
     if (header) {
+        let lastScrollY = window.scrollY;
+
         const handleScroll = () => {
-            if (window.scrollY > 20) {
+            const currentScrollY = window.scrollY;
+
+            // Add 'scrolled' class for background style if not at top
+            if (currentScrollY > 20) {
                 header.classList.add('scrolled');
                 // For project pages that might expect 'active' class
                 header.classList.add('active');
@@ -58,6 +63,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.remove('scrolled');
                 header.classList.remove('active');
             }
+
+            // Smart Hide Logic: Only applicable if we are not at the very top
+            // and if the menu is NOT open (to avoid hiding navigation while using it)
+            if (navMenu && !navMenu.classList.contains('open')) {
+                if (currentScrollY > 100) {
+                    if (currentScrollY > lastScrollY) {
+                        // Scrolling DOWN -> Hide
+                        header.classList.add('header-hidden');
+                    } else {
+                        // Scrolling UP -> Show
+                        header.classList.remove('header-hidden');
+                    }
+                } else {
+                    // Near top -> Show
+                    header.classList.remove('header-hidden');
+                }
+            }
+
+            lastScrollY = currentScrollY;
         };
 
         // Throttle scroll event slightly for performance

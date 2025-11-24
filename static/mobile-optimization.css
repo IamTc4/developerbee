@@ -37,6 +37,13 @@ img, video, iframe {
 /* 4. Fix "Left Oriented" & Grid Overflow Mobile Issues */
 
 @media (max-width: 820px) {
+    /* --- GLOBAL FIXES --- */
+    html, body {
+        overflow-x: hidden !important; /* Fix cut off issue */
+        width: 100% !important;
+        position: relative;
+    }
+
     /* --- NAVIGATION LOGIC RESTORATION --- */
     .hamburger {
         display: flex !important;
@@ -79,6 +86,14 @@ img, video, iframe {
         display: none !important;
     }
 
+    /* SMART HEADER ANIMATION */
+    .island-header {
+        transition: transform 0.3s ease-in-out !important;
+    }
+    .island-header.header-hidden {
+        transform: translate(-50%, -200%) !important; /* Hide upwards */
+    }
+
     /* --- LAYOUT FIXES --- */
 
     /* Reset Container Constraints & Centering */
@@ -87,23 +102,33 @@ img, video, iframe {
     .page-section, .services-section, .pricing-section {
         width: 100% !important;
         max-width: 100% !important;
-        padding-left: 1.25rem !important; /* 20px padding */
-        padding-right: 1.25rem !important;
+        /* Reduce padding to reduce wasted space */
+        padding-left: 10px !important;
+        padding-right: 10px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         box-sizing: border-box;
     }
 
-    /* Force Flex Column for Side-by-Side Layouts */
+    /* Force Flex Column for Side-by-Side Layouts & Center Content */
     .contact-us-content,
     .about-us-content,
     .footer-top,
     .footer-bottom,
-    .hero-inner {
+    .hero-inner,
+    .mission-vision-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 2rem !important;
-        align-items: center !important; /* Center content */
+        align-items: center !important; /* Center content to fix left orientation */
+        text-align: center !important;  /* Center text */
+    }
+
+    /* Ensure children of centered containers behave */
+    .about-us-content > *,
+    .mission-vision-grid > * {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     /* Fix Grid Columns causing overflow on small screens */
@@ -119,6 +144,7 @@ img, video, iframe {
         gap: 1.5rem !important;
         padding: 0 !important;
         display: grid !important;
+        justify-items: center !important; /* Center grid items */
     }
 
     /* Tools Grid Fix - Keep as Grid but adjust columns */
@@ -141,13 +167,38 @@ img, video, iframe {
 
     /* Ensure cards take full width but respect padding */
     .service-card,
-    .pricing-card,
     .project-card,
     .category-card {
         width: 100% !important;
         min-width: 0 !important; /* Allow shrinking below min-content */
         margin: 0 !important;
         box-sizing: border-box;
+    }
+
+    /* --- PRICING PAGE SPECIFIC FIXES --- */
+    .pricing-section {
+        padding-top: 120px !important; /* Reduced from 180px */
+        padding-left: 5px !important; /* Minimize side padding */
+        padding-right: 5px !important;
+    }
+
+    .table-responsive {
+        padding: 0 !important; /* Remove inner padding */
+        width: 100% !important;
+        overflow-x: visible !important; /* Allow cards to show fully */
+    }
+
+    .scroll-cards-container {
+        padding-bottom: 20px;
+        gap: 15px !important; /* Reduce gap */
+    }
+
+    .pricing-card {
+        /* Force wider cards on mobile */
+        min-width: 85vw !important; /* Take up most of the viewport width */
+        width: 85vw !important;
+        margin: 0 auto !important; /* Center if single, but in flex scroll it respects gap */
+        padding: 1.5rem !important;
     }
 
     /* Fix Contact Form Overflow */
@@ -157,22 +208,17 @@ img, video, iframe {
         max-width: 100% !important;
     }
 
+    .contact-form {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
     /* Fix "Shrunken" Hero */
     .hero {
         margin-top: 20px !important; /* Reduce top margin */
         padding: 6rem 1rem 2rem 1rem !important; /* Add top padding for header clearance */
         width: 100% !important;
         box-sizing: border-box;
-    }
-
-    /* Pricing Page Specific Fix for Header Overlap */
-    .pricing-section {
-        padding-top: 180px !important; /* Clear fixed header aggressively */
-        margin-top: 0 !important;
-    }
-
-    .pricing-hero {
-        margin-top: 20px !important;
     }
 
     /* Services Page Header Clearance */
@@ -190,6 +236,12 @@ img, video, iframe {
     .section-title {
         font-size: 2rem !important;
         text-align: center !important; /* Center titles on mobile */
+        width: 100% !important;
+    }
+
+    .section-intro {
+        text-align: center !important;
+        padding: 0 10px;
     }
 
     /* Center text in cards for better mobile balance */
@@ -221,6 +273,7 @@ img, video, iframe {
     /* Fix Pricing Card padding */
     .pricing-card {
         padding: 1.5rem 1rem !important;
+        min-width: 90vw !important; /* Even wider on small screens */
     }
 
     .pricing-main .section-title {
