@@ -26,71 +26,123 @@ img, video, iframe {
     height: auto;
     font-style: italic;
     vertical-align: middle;
-    /* Aspect ratio fallback can be added if we know specific classes,
-       but height: auto helps if width is set. */
 }
 
 /* 3. Text Rendering */
 @font-face {
   font-family: 'Montserrat';
   font-display: swap;
-  /* Note: This only affects local fonts. For Google Fonts, ensure &display=swap is in the URL */
 }
 
-/* 4. Fix "Left Oriented" Mobile Issues */
-/* Ensure container is centered and has padding on mobile */
+/* 4. Fix "Left Oriented" & Grid Overflow Mobile Issues */
+
 @media (max-width: 820px) {
-    .container {
+    /* Reset Container Constraints */
+    .container, .shell, .content-wrapper, .contact-us-content, .about-us-content {
+        width: 100% !important;
+        max-width: 100% !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         box-sizing: border-box;
     }
 
-    /* Fix header alignment if needed */
-    .island-header {
-        width: 100% !important;
-        left: 0 !important;
-        transform: none !important;
-        box-sizing: border-box;
-    }
-
-    /* Ensure island nav dropdown is full width and visible */
-    .island-nav {
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        max-width: none !important; /* Override max-width constraint */
-        box-sizing: border-box;
-    }
-
-    /* Explicitly enable hamburger display on mobile overrides to ensure it appears */
-    .hamburger {
+    /* Force Flex Column for Side-by-Side Layouts */
+    .contact-us-content,
+    .about-us-content,
+    .footer-top,
+    .footer-bottom,
+    .hero-inner {
         display: flex !important;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 24px;
-        height: 20px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1500; /* Ensure it's on top */
+        flex-direction: column !important;
+        gap: 2rem !important;
+        align-items: center !important; /* Center content */
     }
 
-    /* Ensure span lines are visible */
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: #5FF7FF; /* Accent color */
-        border-radius: 1px;
+    /* Fix Grid Columns causing overflow on small screens */
+    .services-grid,
+    .pricing-cards-grid,
+    .portfolio-grid,
+    .category-grid,
+    .team-grid,
+    .testimonial-grid,
+    .client-logos-grid {
+        grid-template-columns: 1fr !important; /* Force single column */
+        width: 100% !important;
+        gap: 1.5rem !important;
+        padding: 0 !important;
     }
+
+    /* Ensure cards take full width but respect padding */
+    .service-card,
+    .pricing-card,
+    .project-card,
+    .category-card {
+        width: 100% !important;
+        min-width: 0 !important; /* Allow shrinking below min-content */
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* Fix Contact Form Overflow */
+    .contact-form-container,
+    .contact-info-container {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Fix "Shrunken" Hero */
+    .hero {
+        margin-top: 60px !important; /* Reduce top margin */
+        padding: 4rem 1rem 2rem 1rem !important;
+        border-radius: 20px !important; /* Smaller radius for mobile */
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Adjust Headers */
+    h1 {
+        font-size: 2.2rem !important; /* Prevent massive text */
+        line-height: 1.2 !important;
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+    }
+}
+
+/* 5. Very Small Screen Optimizations (iPhone SE / 320px) */
+@media (max-width: 400px) {
+    /* Hide the 'Contact Us' button in header to prevent overlap with logo/hamburger */
+    .island-action, .nav-contact-btn {
+        display: none !important;
+    }
+
+    /* Ensure Logo and Hamburger fit */
+    .island-header {
+        padding: 0.5rem 1rem !important;
+        justify-content: space-between !important;
+    }
+
+    /* Fix Pricing Card padding */
+    .pricing-card {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .pricing-main .section-title {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* 6. Fix Form Visibility on Contact Page */
+.contact-form {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent spillover */
 }
 
 /* Optimize Interaction to Next Paint (INP) */
-/* Reduce main thread blocking by ensuring smooth transitions */
 * {
     /* Avoid heavy layout trashing on scroll if possible */
 }
