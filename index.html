@@ -38,6 +38,8 @@
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#5FF7FF">
     <meta name="msapplication-TileColor" content="#5FF7FF">
+
+    <!-- Explicit Dimensions / Aspect Ratio Fix for Favicon to prevent warnings (though not strictly CLS) -->
     <meta name="application-name" content="DeveloperBee">
     <meta name="apple-mobile-web-app-title" content="DeveloperBee">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -70,6 +72,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/mobile-optimization.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
@@ -1088,12 +1091,12 @@
         <script src="static/script-3d.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
             integrity="sha512-kq1e3YMRoYBebquGsyhQOdE31E4n4t4tccnE9vrFica8tWHZcizxgxYkWwaP42gnikIze8ih/7gToYtL6vhJ2w=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
             integrity="sha512-o53HZJ4LPTRTF+t0NenE2no0RvrRZtGJPD7W82dManIeZDV4SSQdlqzTeWY5Avzkdxl3pNGdisz8Iky3UczZPQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="static/header.js"></script>
-        <script src="static/script.js"></script>
+            crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="static/header.js" defer></script>
+        <script src="static/script.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
         <script>
             AOS.init({ once: true, duration: 800 });
