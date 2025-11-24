@@ -37,14 +37,60 @@ img, video, iframe {
 /* 4. Fix "Left Oriented" & Grid Overflow Mobile Issues */
 
 @media (max-width: 820px) {
-    /* Reset Container Constraints */
-    .container, .shell, .content-wrapper, .contact-us-content, .about-us-content {
+    /* --- NAVIGATION LOGIC RESTORATION --- */
+    .hamburger {
+        display: flex !important;
+        z-index: 1402;
+    }
+
+    .island-nav {
+        position: fixed !important;
+        flex-direction: column !important;
+        gap: 0.3em !important;
+        align-items: flex-start !important;
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(12px) !important;
+        top: 80px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        border-radius: 1.3em !important;
+        width: 90vw !important;
+        max-width: 350px !important;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5) !important;
+        padding: 1.5rem !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        z-index: 1401 !important;
+        transition: opacity 0.23s ease !important;
+        border: 1px solid rgba(95, 247, 255, 0.2) !important;
+    }
+
+    .island-nav.open {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .island-nav li {
+        width: 100% !important;
+    }
+
+    .island-action {
+        /* Hide CTA button in header on mobile if it crowds the logo/hamburger */
+        display: none !important;
+    }
+
+    /* --- LAYOUT FIXES --- */
+
+    /* Reset Container Constraints & Centering */
+    .container, .shell, .content-wrapper,
+    .contact-us-content, .about-us-content,
+    .page-section, .services-section, .pricing-section {
         width: 100% !important;
         max-width: 100% !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        padding-left: 1.25rem !important; /* 20px padding */
+        padding-right: 1.25rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         box-sizing: border-box;
     }
 
@@ -72,6 +118,25 @@ img, video, iframe {
         width: 100% !important;
         gap: 1.5rem !important;
         padding: 0 !important;
+        display: grid !important;
+    }
+
+    /* Tools Grid Fix - Keep as Grid but adjust columns */
+    .tool-logos-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 cols for logos */
+        gap: 1.5rem !important;
+        justify-items: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
+    }
+
+    .tool-logos-grid img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 60px !important; /* Constrain height */
+        object-fit: contain !important;
     }
 
     /* Ensure cards take full width but respect padding */
@@ -94,35 +159,63 @@ img, video, iframe {
 
     /* Fix "Shrunken" Hero */
     .hero {
-        margin-top: 60px !important; /* Reduce top margin */
-        padding: 4rem 1rem 2rem 1rem !important;
-        border-radius: 20px !important; /* Smaller radius for mobile */
+        margin-top: 20px !important; /* Reduce top margin */
+        padding: 6rem 1rem 2rem 1rem !important; /* Add top padding for header clearance */
         width: 100% !important;
         box-sizing: border-box;
+    }
+
+    /* Pricing Page Specific Fix for Header Overlap */
+    .pricing-section {
+        padding-top: 180px !important; /* Clear fixed header aggressively */
+        margin-top: 0 !important;
+    }
+
+    .pricing-hero {
+        margin-top: 20px !important;
+    }
+
+    /* Services Page Header Clearance */
+    .services-section {
+        padding-top: 100px !important; /* Ensure generic padding */
     }
 
     /* Adjust Headers */
     h1 {
         font-size: 2.2rem !important; /* Prevent massive text */
         line-height: 1.2 !important;
+        word-wrap: break-word; /* Prevent overflow */
     }
 
     .section-title {
         font-size: 2rem !important;
+        text-align: center !important; /* Center titles on mobile */
+    }
+
+    /* Center text in cards for better mobile balance */
+    .pricing-card, .service-card {
+        text-align: center !important;
+    }
+    .pricing-card ul, .service-card ul {
+        text-align: left !important; /* Keep lists readable */
+        display: inline-block;
     }
 }
 
 /* 5. Very Small Screen Optimizations (iPhone SE / 320px) */
 @media (max-width: 400px) {
-    /* Hide the 'Contact Us' button in header to prevent overlap with logo/hamburger */
-    .island-action, .nav-contact-btn {
-        display: none !important;
-    }
-
     /* Ensure Logo and Hamburger fit */
     .island-header {
-        padding: 0.5rem 1rem !important;
+        padding: 0.5rem 0.8rem !important;
         justify-content: space-between !important;
+        width: 95vw !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        min-width: 0 !important;
+    }
+
+    .island-logo {
+        font-size: 1.1rem !important;
     }
 
     /* Fix Pricing Card padding */
@@ -132,6 +225,10 @@ img, video, iframe {
 
     .pricing-main .section-title {
         font-size: 1.8rem !important;
+    }
+
+    .tool-logos-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Reduce to 2 cols for very small screens */
     }
 }
 
