@@ -16,12 +16,33 @@ const mouse = {
     radius: 150
 };
 
-const colors = ['#5FF7FF', '#40E0D0', '#00CED1', '#20B2AA', '#008B8B'];
+// Pre-parse colors to array [r, g, b, a] to avoid parsing every frame
+const parseColorString = (color) => {
+    if (color.startsWith('#')) {
+        return [
+            parseInt(color.slice(1, 3), 16),
+            parseInt(color.slice(3, 5), 16),
+            parseInt(color.slice(5, 7), 16),
+            1
+        ];
+    }
+    if (color.startsWith('rgba')) {
+        return color.substring(5, color.length - 1).split(',').map(s => parseFloat(s.trim()));
+    }
+    return [10, 10, 10, 0.5]; // Default base color
+};
+
+const colorsStrings = ['#5FF7FF', '#40E0D0', '#00CED1', '#20B2AA', '#008B8B'];
+const colors = colorsStrings.map(parseColorString);
+const baseColor = [10, 10, 10, 0.5];
 
 function init() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
     hexagons = [];
+    // Reduce density on smaller screens if we were to run it, but we will skip it.
+    if (width < 768) return;
+
     for (let row = 0; row < numRows; row++) {
         for (let col = 0; col < numCols; col++) {
             const x = col * hexWidth + (row % 2) * (hexWidth / 2);
@@ -36,9 +57,8 @@ class Hexagon {
         this.x = x;
         this.y = y;
         this.size = hexSize;
-        this.baseColor = 'rgba(10, 10, 10, 0.5)';
-        this.color = this.baseColor;
-        this.targetColor = this.baseColor;
+        this.color = [...baseColor]; // Clone array
+        this.targetColor = baseColor;
         this.colorSpeed = 0.05;
     }
 
@@ -55,7 +75,8 @@ class Hexagon {
             }
         }
         ctx.closePath();
-        ctx.fillStyle = this.color;
+        // Convert array back to string only for drawing
+        ctx.fillStyle = `rgba(${Math.round(this.color[0])}, ${Math.round(this.color[1])}, ${Math.round(this.color[2])}, ${this.color[3]})`;
         ctx.fill();
     }
 
@@ -66,45 +87,28 @@ class Hexagon {
 
         if (distance < mouse.radius) {
             const index = Math.floor(distance / mouse.radius * colors.length);
-            this.targetColor = colors[index];
+            this.targetColor = colors[Math.min(index, colors.length - 1)];
         } else {
-            this.targetColor = this.baseColor;
+            this.targetColor = baseColor;
         }
 
-        const parseColor = (color) => {
-            if (color.startsWith('#')) {
-                return [
-                    parseInt(color.slice(1, 3), 16),
-                    parseInt(color.slice(3, 5), 16),
-                    parseInt(color.slice(5, 7), 16),
-                    1
-                ];
-            }
-            if (color.startsWith('rgba')) {
-                return color.substring(5, color.length - 1).split(',').map(s => parseFloat(s.trim()));
-            }
-            if (color.startsWith('rgb')) {
-                const values = color.substring(4, color.length - 1).split(',').map(s => parseFloat(s.trim()));
-                return [values[0], values[1], values[2], 1];
-            }
-            return [0,0,0,0]; // Should not happen
-        };
-
-        const currentColor = parseColor(this.color);
-        const targetColor = parseColor(this.targetColor);
-
-        const r = currentColor[0] + (targetColor[0] - currentColor[0]) * this.colorSpeed;
-        const g = currentColor[1] + (targetColor[1] - currentColor[1]) * this.colorSpeed;
-        const b = currentColor[2] + (targetColor[2] - currentColor[2]) * this.colorSpeed;
-        const a = currentColor[3] + (targetColor[3] - currentColor[3]) * this.colorSpeed;
-
-        this.color = `rgba(${r}, ${g}, ${b}, ${a})`;
+        // Interpolate colors
+        this.color[0] += (this.targetColor[0] - this.color[0]) * this.colorSpeed;
+        this.color[1] += (this.targetColor[1] - this.color[1]) * this.colorSpeed;
+        this.color[2] += (this.targetColor[2] - this.color[2]) * this.colorSpeed;
+        this.color[3] += (this.targetColor[3] - this.color[3]) * this.colorSpeed;
 
         this.draw();
     }
 }
 
 function animate() {
+    // Disable animation loop on mobile
+    if (window.innerWidth < 768) {
+        ctx.clearRect(0, 0, width, height);
+        return;
+    }
+
     ctx.clearRect(0, 0, width, height);
     for (const hex of hexagons) {
         hex.update();
@@ -112,11 +116,19 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-window.addEventListener('resize', init);
+window.addEventListener('resize', () => {
+    init();
+    // Restart animation if resizing from mobile to desktop
+    if (window.innerWidth >= 768 && hexagons.length === 0) {
+        animate();
+    }
+});
+
 window.addEventListener('mousemove', (event) => {
     mouse.x = event.x;
     mouse.y = event.y;
 });
 
+// Check initial size
 init();
 animate();
