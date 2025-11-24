@@ -1,0 +1,74 @@
+/* Mobile Optimization & CWV Improvements */
+
+/* 1. Touch Targets: Ensure minimum 48x48px clickable area */
+a, button, input[type="submit"], input[type="button"], select, .nav-contact-btn {
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation; /* Improves touch response */
+}
+
+/* Adjust links inside text to not break layout but have padding */
+p a, li a {
+    display: inline-block; /* Allows padding to affect layout */
+}
+
+/* Specific fix for island nav links to ensure they are large enough */
+.island-nav a {
+    padding: 0.75rem 1rem !important; /* Increase padding */
+}
+
+/* 2. Visual Stability (CLS): Aspect Ratio Placeholders */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    font-style: italic;
+    vertical-align: middle;
+    /* Aspect ratio fallback can be added if we know specific classes,
+       but height: auto helps if width is set. */
+}
+
+/* 3. Text Rendering */
+@font-face {
+  font-family: 'Montserrat';
+  font-display: swap;
+  /* Note: This only affects local fonts. For Google Fonts, ensure &display=swap is in the URL */
+}
+
+/* 4. Fix "Left Oriented" Mobile Issues */
+/* Ensure container is centered and has padding on mobile */
+@media (max-width: 820px) {
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Fix header alignment if needed */
+    .island-header {
+        width: 100% !important;
+        left: 0 !important;
+        transform: none !important;
+        box-sizing: border-box;
+    }
+
+    /* Ensure island nav dropdown is full width and visible */
+    .island-nav {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: none !important; /* Override max-width constraint */
+        box-sizing: border-box;
+    }
+}
+
+/* Optimize Interaction to Next Paint (INP) */
+/* Reduce main thread blocking by ensuring smooth transitions */
+* {
+    /* Avoid heavy layout trashing on scroll if possible */
+}

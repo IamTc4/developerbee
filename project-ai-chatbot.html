@@ -41,6 +41,8 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="static/mobile-optimization.css">
+    <script src="static/header.js" defer></script>
     <style>
         /* --- DESIGN VARIABLES (Reduced Cyan Usage) --- */
         :root {
@@ -467,35 +469,7 @@
     </div>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function () {
-            var h = document.getElementById('mainHeader');
-            if (window.scrollY > 10) h.classList.add('active');
-            else h.classList.remove('active');
-        });
-
-        // Hamburger menu for mobile
-        const navBtn = document.getElementById('navToggle');
-        const navMenu = document.getElementById('headerNav');
-        navBtn.addEventListener('click', function () {
-            navMenu.classList.toggle('open');
-        });
-
-        // Accessibility: close nav on outside click/mobile tap
-        document.addEventListener('click', function (e) {
-            if (window.innerWidth < 820) {
-                if (!navMenu.contains(e.target) && !navBtn.contains(e.target)) {
-                    navMenu.classList.remove('open');
-                }
-            }
-        });
-
-        // Optional: close menu after link click (mobile UX)
-        document.querySelectorAll('.island-nav a').forEach((link) =>
-            link.addEventListener('click', function () {
-                if (window.innerWidth < 820) navMenu.classList.remove('open');
-            })
-        );
+        // Gallery auto-scroll only (Header logic moved to static/header.js)
         document.addEventListener('DOMContentLoaded', () => {
             const gallery = document.querySelector('.gallery');
             if (!gallery) return;
@@ -522,8 +496,6 @@
             // Initialize
             autoScroll();
         });
-
-
     </script>
 
 </body>
