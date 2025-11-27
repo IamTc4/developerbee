@@ -78,6 +78,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -784,123 +785,121 @@
                 <h2 class="section-title">Case Studies. Proof it works.</h2>
             </center>
             <span> <br> </span>
-            <div class="carousel-wrapper">
-                <div class="carousel">
-
-
-
-                    <div class="scroll-indicator">Scroll for more &rarr;</div>
-                    <div class="carousel-item">
-                        <video src="static\photo\Fitness_App.mp4" alt="Mobile App Design" autoplay loop muted
-                            playsinline width="500"></video>
-                        <div class="carousel-item-content">
-                            <h2>Mobile App Design</h2>
-                            <p>Complete UI/UX design for fitness tracking app</p>
-                            <a href="projects/project-mobile-app-design.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <video src="static\photo\Healthcare_Portal.mp4" alt="Healthcare Portal" autoplay loop muted
-                            playsinline width="500"></video>
-                        <div class="carousel-item-content">
-                            <h2>Healthcare Portal</h2>
-                            <p>Patient management system with intuitive interface</p>
-                            <a href="projects/project-healthcare-portal.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <video src="static\photo\E_Learning_Platform.mp4" alt="E-Learning Platform" autoplay loop muted
-                            playsinline width="500"></video>
-                        <div class="carousel-item-content">
-                            <h2>E-Learning Platform</h2>
-                            <p>Interactive learning management system design</p>
-                            <a href="projects/project-e-learning-platform.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <video src="static\photo\startup.mp4" alt="Tech Startup Brand" autoplay loop muted playsinline
-                            width="500"></video>
-                        <div class="carousel-item-content">
-                            <h2>Tech Startup Brand</h2>
-                            <p>Complete brand identity for AI-powered startup</p>
-                            <a href="projects/project-tech-startup-brand.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="static\photo\crm.png" alt="CRM System" autoplay loop muted playsinline width="500">
-                        <div class="carousel-item-content">
-                            <h2>CRM System</h2>
-                            <p>Custom customer relationship management platform</p>
-                            <a href="projects/project-crm-system.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static\photo\resto.png" alt="Restaurant Branding">
-                        <div class="carousel-item-content">
-                            <h2>Restaurant Branding</h2>
-                            <p>Visual identity and packaging for premium restaurant</p>
-                            <a href="projects/project-restaurant-branding.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static\photo\brand.png" alt="Wellness Brand">
-                        <div class="carousel-item-content">
-                            <h2>Wellness Brand</h2>
-                            <p>Complete brand identity for health & wellness company</p>
-                            <a href="projects/project-wellness-brand.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static\photo\chatbot.png" alt="AI Chatbot">
-                        <div class="carousel-item-content">
-                            <h2>AI Chatbot</h2>
-                            <p>Intelligent customer service automation system</p>
-                            <a href="projects/project-ai-chatbot.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static\photo\auto.png" alt="Process Automation">
-                        <div class="carousel-item-content">
-                            <h2>Process Automation</h2>
-                            <p>Workflow automation for manufacturing company</p>
-                            <a href="projects/project-process-automation.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static\photo\buisanalytics.png" alt="Business Intelligence">
-                        <div class="carousel-item-content">
-                            <h2>Business Intelligence</h2>
-                            <p>Advanced analytics dashboard for retail chain</p>
-                            <a href="projects/project-business-intelligence.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static\photo\last.png" alt="Predictive Analytics">
-                        <div class="carousel-item-content">
-                            <h2>Predictive Analytics</h2>
-                            <p>ML-powered forecasting for financial services</p>
-                            <a href="projects/project-predictive-analytics.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="static/photo/ecoms.png" alt="E-Commerce Platform">
-                        <div class="carousel-item-content">
-                            <h2>E-Commerce Platform</h2>
-                            <p>Full-stack e-commerce solution with advanced features</p>
-                            <a href="projects/project-ecommerce-platform.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <video src="static\photo\fintech.mp4" alt="Fintech Dashboard" autoplay loop muted playsinline
-                            width="500"></video>
-
-                        <div class="carousel-item-content">
-                            <h2>Fintech Dashboard</h2>
-                            <p>Real-time financial analytics and reporting platform</p>
-                            <a href="projects/project-fintech-dashboard.html" class="view-project">View Project</a>
-                        </div>
-                    </div>
+            <div id="image-carousel" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <video src="static/photo/Fitness_App.mp4" alt="Mobile App Design" autoplay loop muted
+                                playsinline width="500"></video>
+                            <div class="carousel-item-content">
+                                <h2>Mobile App Design</h2>
+                                <p>Complete UI/UX design for fitness tracking app</p>
+                                <a href="projects/project-mobile-app-design.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <video src="static/photo/Healthcare_Portal.mp4" alt="Healthcare Portal" autoplay loop muted
+                                playsinline width="500"></video>
+                            <div class="carousel-item-content">
+                                <h2>Healthcare Portal</h2>
+                                <p>Patient management system with intuitive interface</p>
+                                <a href="projects/project-healthcare-portal.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <video src="static/photo/E_Learning_Platform.mp4" alt="E-Learning Platform" autoplay loop
+                                muted playsinline width="500"></video>
+                            <div class="carousel-item-content">
+                                <h2>E-Learning Platform</h2>
+                                <p>Interactive learning management system design</p>
+                                <a href="projects/project-e-learning-platform.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <video src="static/photo/startup.mp4" alt="Tech Startup Brand" autoplay loop muted
+                                playsinline width="500"></video>
+                            <div class="carousel-item-content">
+                                <h2>Tech Startup Brand</h2>
+                                <p>Complete brand identity for AI-powered startup</p>
+                                <a href="projects/project-tech-startup-brand.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/crm.png" alt="CRM System" autoplay loop muted playsinline width="500">
+                            <div class="carousel-item-content">
+                                <h2>CRM System</h2>
+                                <p>Custom customer relationship management platform</p>
+                                <a href="projects/project-crm-system.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/resto.png" alt="Restaurant Branding">
+                            <div class="carousel-item-content">
+                                <h2>Restaurant Branding</h2>
+                                <p>Visual identity and packaging for premium restaurant</p>
+                                <a href="projects/project-restaurant-branding.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/brand.png" alt="Wellness Brand">
+                            <div class="carousel-item-content">
+                                <h2>Wellness Brand</h2>
+                                <p>Complete brand identity for health & wellness company</p>
+                                <a href="projects/project-wellness-brand.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/chatbot.png" alt="AI Chatbot">
+                            <div class="carousel-item-content">
+                                <h2>AI Chatbot</h2>
+                                <p>Intelligent customer service automation system</p>
+                                <a href="projects/project-ai-chatbot.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/auto.png" alt="Process Automation">
+                            <div class="carousel-item-content">
+                                <h2>Process Automation</h2>
+                                <p>Workflow automation for manufacturing company</p>
+                                <a href="projects/project-process-automation.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/buisanalytics.png" alt="Business Intelligence">
+                            <div class="carousel-item-content">
+                                <h2>Business Intelligence</h2>
+                                <p>Advanced analytics dashboard for retail chain</p>
+                                <a href="projects/project-business-intelligence.html" class="view-project">View
+                                    Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/last.png" alt="Predictive Analytics">
+                            <div class="carousel-item-content">
+                                <h2>Predictive Analytics</h2>
+                                <p>ML-powered forecasting for financial services</p>
+                                <a href="projects/project-predictive-analytics.html" class="view-project">View
+                                    Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="static/photo/ecoms.png" alt="E-Commerce Platform">
+                            <div class="carousel-item-content">
+                                <h2>E-Commerce Platform</h2>
+                                <p>Full-stack e-commerce solution with advanced features</p>
+                                <a href="projects/project-ecommerce-platform.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <video src="static/photo/fintech.mp4" alt="Fintech Dashboard" autoplay loop muted
+                                playsinline width="500"></video>
+                            <div class="carousel-item-content">
+                                <h2>Fintech Dashboard</h2>
+                                <p>Real-time financial analytics and reporting platform</p>
+                                <a href="projects/project-fintech-dashboard.html" class="view-project">View Project</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -920,20 +919,20 @@
                     <h2 class="section-title">Tools We Use.</h2>
                     <p class="tools-intro">Our toolbox is designed to bring your brand vision to life.</p>
                     <div class="tool-logos-grid">
-                        <img src="static\logo\6.png" alt="Tool Logo 1" loading="lazy">
-                        <img src="static\logo\5.png" alt="Tool Logo 2" loading="lazy">
-                        <img src="static\logo\4.png" alt="Tool Logo 3" loading="lazy">
-                        <img src="static\logo\3.png" alt="Tool Logo 4" loading="lazy">
-                        <img src="static\logo\2.png" alt="Tool Logo 5" loading="lazy">
-                        <img src="static\logo\1.png" alt="Tool Logo 6" loading="lazy">
-                        <img src="static\logo\a6.png" alt="Tool Logo 1" loading="lazy">
-                        <img src="static\logo\a5.png" alt="Tool Logo 2" loading="lazy">
-                        <img src="static\logo\a4.png" alt="Tool Logo 3" loading="lazy">
-                        <img src="static\logo\a3.png" alt="Tool Logo 4" loading="lazy">
-                        <img src="static\logo\a7.png" alt="Tool Logo 5" loading="lazy">
-                        <img src="static\logo\a.png" alt="Tool Logo 6" loading="lazy">
-                        <img src="static\logo\a9.png" alt="Tool Logo 5" loading="lazy">
-                        <img src="static\logo\a8.png" alt="Tool Logo 6" loading="lazy">
+                        <img src="static/logo/6.png" alt="Tool Logo 1" loading="lazy">
+                        <img src="static/logo/5.png" alt="Tool Logo 2" loading="lazy">
+                        <img src="static/logo/4.png" alt="Tool Logo 3" loading="lazy">
+                        <img src="static/logo/3.png" alt="Tool Logo 4" loading="lazy">
+                        <img src="static/logo/2.png" alt="Tool Logo 5" loading="lazy">
+                        <img src="static/logo/1.png" alt="Tool Logo 6" loading="lazy">
+                        <img src="static/logo/a6.png" alt="Tool Logo 1" loading="lazy">
+                        <img src="static/logo/a5.png" alt="Tool Logo 2" loading="lazy">
+                        <img src="static/logo/a4.png" alt="Tool Logo 3" loading="lazy">
+                        <img src="static/logo/a3.png" alt="Tool Logo 4" loading="lazy">
+                        <img src="static/logo/a7.png" alt="Tool Logo 5" loading="lazy">
+                        <img src="static/logo/a.png" alt="Tool Logo 6" loading="lazy">
+                        <img src="static/logo/a9.png" alt="Tool Logo 5" loading="lazy">
+                        <img src="static/logo/a8.png" alt="Tool Logo 6" loading="lazy">
                     </div>
                 </div>
             </section>
@@ -1118,6 +1117,12 @@
         <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
         <script>
             AOS.init({ once: true, duration: 800 });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+        <script>
+            document.addEventListener( 'DOMContentLoaded', function () {
+                new Splide( '#image-carousel' ).mount();
+            } );
         </script>
         <script>
 
